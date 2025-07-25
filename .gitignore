@@ -3,3 +3,8 @@ __pycache__/
 .env
 venv/
 .vector_db/
+.env
+.env
+.env
+venv/
+__pycache__/
