@@ -1,0 +1,5 @@
+langchain
+langchain-community
+transformers
+torch
+faiss-cpu

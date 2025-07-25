@@ -1,0 +1,37 @@
+[2025-07-22 08:01:01,789] {{taskinstance.py:1150}} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/airflow/dags/transform_orders.py", line 54, in <module>
+    df = pd.read_csv('orders.csv')
+FileNotFoundError: [Errno 2] No such file or directory: 'orders.csv'
+
+[2025-07-22 08:01:01,801] {{taskinstance.py:1365}} INFO - Marking task as FAILED. dag_id=etl_orders, task_id=load_orders, execution_date=2025-07-21T00:00:00+00:00
+
+---
+
+[2025-07-20 14:45:33,102] {{taskinstance.py:1150}} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/airflow/dags/extract_users.py", line 22, in <module>
+    raise ConnectionError("Unable to connect to source API.")
+ConnectionError: Unable to connect to source API.
+
+[2025-07-20 14:45:33,112] {{taskinstance.py:1365}} INFO - Marking task as FAILED. dag_id=etl_users, task_id=extract_users, execution_date=2025-07-19T00:00:00+00:00
+
+---
+
+[2025-07-18 10:12:01,221] {{taskinstance.py:1150}} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/airflow/dags/load_data_to_s3.py", line 18, in <module>
+    s3_hook.load_file(filename='data.csv', key='data.csv', bucket_name='analytics-bucket')
+AttributeError: 'NoneType' object has no attribute 'load_file'
+
+[2025-07-18 10:12:01,233] {{taskinstance.py:1365}} INFO - Marking task as FAILED. dag_id=upload_to_s3, task_id=load_to_s3, execution_date=2025-07-17T00:00:00+00:00
+
+---
+
+[2025-07-15 09:30:01,011] {{taskinstance.py:1150}} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/airflow/dags/load_orders.py", line 42, in <module>
+    conn = psycopg2.connect(dbname="analytics", user="admin", password="secret")
+psycopg2.OperationalError: SSL SYSCALL error: Connection reset by peer
+
+[2025-07-15 09:30:01,023] {{taskinstance.py:1365}} INFO - Marking task as FAILED. dag_id=etl_orders, task_id=load_orders, execution_date=2025-07-14T00:00:00+00:00
